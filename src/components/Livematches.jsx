@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {Link,Route} from 'react-router-dom';
+import SingleMatch from './components/SingleMatch';
+
+
 
 export class Livematches extends Component 
 {
@@ -44,6 +48,24 @@ export class Livematches extends Component
 	      )
 	}
 
+	parseEatchMatch = (data,match) =>
+	{
+		return(
+				<div>
+					<ul>
+						<li index={data.unique_id} key={data.unique_id}>
+							<Link to={'${match.url}/${data.unique_id}'}>
+								Match {data.unique_id}
+							</Link>
+						</li>
+						<Route path={`${match.url}/:id(\\d+)`} component={SingleMatch} />
+					</ul>
+					{/*<Route path={'${match.url}/:id(\\d+)'} component={Match} />*/}
+				</div>
+				
+			);
+	}
+
 	render() {
 
 		if(this.state.error)
@@ -65,7 +87,11 @@ export class Livematches extends Component
 			
 
 			return(
-					<div>{JSON.stringify(this.state.data)}</div>
+					<div>
+						{
+							this.state.data.map(this.parseEatchMatch)
+						}
+					</div>
 				);
 		}
 
