@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Link,Route} from 'react-router-dom';
-import SingleMatch from './components/SingleMatch';
 
 
 
@@ -58,7 +57,7 @@ export class Livematches extends Component
 								Match {data.unique_id}
 							</Link>
 						</li>
-						<Route path={`${match.url}/:id(\\d+)`} component={SingleMatch} />
+						{/*<Route path={`${match.url}/:id(\\d+)`} component={SingleMatch} />*/}
 					</ul>
 					{/*<Route path={'${match.url}/:id(\\d+)'} component={Match} />*/}
 				</div>

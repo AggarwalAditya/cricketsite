@@ -2,9 +2,12 @@ from bs4 import BeautifulSoup
 import requests
 from flask import Flask,request
 import json
+from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/')
 def hello_world():
@@ -12,6 +15,7 @@ def hello_world():
 
 
 @app.route('/news',methods = ['POST', 'GET'])
+@cross_origin()
 def getNews():
 	if request.method == 'GET':
 		source_code = requests.get("https://www.cricbuzz.com/")
