@@ -19,9 +19,19 @@ export class Livematches extends Component
       .then(res => res.json())
       .then(
         (result) => {
+		let myDataLength=Object.keys(result.matches).length;
+		let startedMatches=[];
+		for(let i=0;i<myDataLength;i++)
+		{
+			if(result.matches[i].matchStarted === true)
+			{
+				startedMatches.push(result.matches[i]);
+			}
+		}
+
           this.setState({
             isLoaded: true,
-            data: result.matches
+            data: startedMatches
           });
         },
         
@@ -52,9 +62,10 @@ export class Livematches extends Component
 
 		else
 		{
-			let myData=JSON.stringify(this.state.data);
+			
+
 			return(
-					<div>{myData}</div>
+					<div>{JSON.stringify(this.state.data)}</div>
 				);
 		}
 
@@ -62,4 +73,4 @@ export class Livematches extends Component
 	}
 }
 
-export default Livematches
+export default Livematches;
