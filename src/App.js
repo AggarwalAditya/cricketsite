@@ -4,6 +4,7 @@ import {BrowserRouter,Route,Switch,Redirect} from 'react-router-dom';
 import Home from "./components/Home";
 import CustomNavbar from "./components/CustomNavbar";
 import Livematches from "./components/Livematches";
+import Banner from "./components/Banner";
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <CustomNavbar />
+          <Banner />
           <div>
             <Switch>
               <Route exact path="/" component={Home}/>
