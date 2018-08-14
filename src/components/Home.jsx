@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {NewsHeaderCard} from 'react-ui-cards';
+import './Home.css';
 
 export class Home extends Component 
 {
@@ -36,6 +38,19 @@ export class Home extends Component
 	      )
 	}
 
+	parseNews = (data) =>{
+		return(
+				 <NewsHeaderCard
+				 	  className='block'
+			          href={data.href}
+			          thumbnail='https://i.imgur.com/rLFk5nd.jpg'
+			          title={data.title}
+			          author='Daily Sport'
+			          date='Feb 2, 2018'
+		          />
+			);
+	}
+
 	render() 
 	{
 		if(this.state.error)
@@ -58,9 +73,12 @@ export class Home extends Component
 
 			return(
 					<div>
-						{
-							JSON.stringify(this.state.data)
-						}
+						<div className='card-container'>
+							{
+								
+								this.state.data.map(this.parseNews)
+							}
+						</div>
 					</div>
 				);
 		}

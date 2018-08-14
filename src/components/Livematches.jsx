@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link,Route} from 'react-router-dom';
-
-
+import {ProductCard} from 'react-ui-cards';
+import './Livematches.css';
 
 export class Livematches extends Component 
 {
@@ -47,19 +47,20 @@ export class Livematches extends Component
 	      )
 	}
 
-	parseEatchMatch = (data,match) =>
+	parseEatchMatch = (data) =>
 	{
 		return(
 				<div>
-					<ul>
-						<li index={data.unique_id} key={data.unique_id}>
-							<Link to={'${match.url}/${data.unique_id}'}>
-								Match {data.unique_id}
-							</Link>
-						</li>
-						{/*<Route path={`${match.url}/:id(\\d+)`} component={SingleMatch} />*/}
-					</ul>
-					{/*<Route path={'${match.url}/:id(\\d+)'} component={Match} />*/}
+					<ProductCard
+			          photos={[
+			            'https://i.imgur.com/jRVDeI8.jpg',
+			          ]}
+			          price={data.type}
+			          productName={data["team-1"]}
+			          description={data.toss_winner_team}
+			          rating=''
+			          url='https://github.com/nukeop'
+			        />
 				</div>
 				
 			);

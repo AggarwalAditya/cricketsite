@@ -7,8 +7,8 @@ export class Banner extends Component
 		return (
 			<Grid>
 				<Jumbotron>
-					<h2>Welcome to my world.</h2>
-					<p>This is how to build a website using react, react-router and react-bootstrap.</p>
+					<h2>Welcome to Crick-O-pedia</h2>
+					<p>This website aims at providing you the latest cricket buzz.</p>
 				</Jumbotron>
 			</Grid>
 		);
