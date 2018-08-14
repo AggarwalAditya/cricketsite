@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
-export class SingleMatch extends Component {
-	render() {
+export class Singlematch extends Component 
+{
+	render() 
+	{
 		return (
-			<div></div>
+			<div>Single match </div>
 		);
 	}
 }
 
-export default SingleMatch;
+export default Singlematch;

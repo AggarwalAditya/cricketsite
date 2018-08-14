@@ -21,7 +21,7 @@ export class CustomNavbar extends Component
 			            <NavItem eventKey={1} componentClass={Link} href="/" to="/">
 			              Home
 			            </NavItem>
-			            <NavItem eventKey={2} componentClass={Link} href="/livematches" to="/Livematches">
+			            <NavItem eventKey={2} componentClass={Link} href="/livematches" to="/livematches">
 			              Live Matches
 			            </NavItem>
 			          </Nav>

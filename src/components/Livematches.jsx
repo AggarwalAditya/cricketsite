@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {Link,Route} from 'react-router-dom';
+import {Link,Route,Switch} from 'react-router-dom';
 import {ProductCard} from 'react-ui-cards';
 import './Livematches.css';
+import Singlematch from './Singlematch';
 
 export class Livematches extends Component 
 {
@@ -50,18 +51,20 @@ export class Livematches extends Component
 	parseEatchMatch = (data) =>
 	{
 		return(
-				<div>
-					<ProductCard
-			          photos={[
-			            'https://i.imgur.com/jRVDeI8.jpg',
-			          ]}
-			          price={data.type}
-			          productName={data["team-1"]}
-			          description={data.toss_winner_team}
-			          rating=''
-			          url='https://github.com/nukeop'
-			        />
-				</div>
+				<li key={data.unique_id}>
+					<Link to={`${this.props.match.url}/${data.unique_id}`}>
+						<ProductCard
+				          photos={[
+				            'https://i.imgur.com/jRVDeI8.jpg',
+				          ]}
+				          price={data.type}
+				          productName={data["team-1"]}
+				          description={data.toss_winner_team}
+				          rating=''
+				          url='https://github.com/nukeop'
+				        />
+			        </Link>
+				</li>
 				
 			);
 	}
@@ -88,9 +91,20 @@ export class Livematches extends Component
 
 			return(
 					<div>
-						{
-							this.state.data.map(this.parseEatchMatch)
-						}
+						<ul>
+							{
+								this.state.data.map(this.parseEatchMatch)
+							}
+						</ul>
+						<Switch>
+					     
+					      	<Route
+						      exact
+						      path={this.props.match.url}
+						      render={() => <h3>Please select a message</h3>}
+						    />
+						    <Route path={`${this.props.match.url}/:id(\\d+)`} component={Singlematch} />
+						</Switch>
 					</div>
 				);
 		}
