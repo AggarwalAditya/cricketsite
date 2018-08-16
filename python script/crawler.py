@@ -52,15 +52,16 @@ def updateMatch():
 
 		if matchId in matchesData:
 			arr = matchesData[matchId]
-			arr.append(info)
+			arr.append(matchInfo)
 		else:
 			matchesData[matchId] = []
-			matchesData[matchId].append(info)
+			matchesData[matchId].append(matchInfo)
 
-		return json.dumps(matchesData[matchId])
+		print json.dumps(matchesData)
+		return json.dumps(matchesData)
 
 	else:
-		return 'fom post'
+		return 'from post'
 
 
 
