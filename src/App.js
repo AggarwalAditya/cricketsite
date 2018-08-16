@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import CustomNavbar from "./components/CustomNavbar";
 import Livematches from "./components/Livematches";
 import Banner from "./components/Banner";
+import Singlematch from "./components/Singlematch";
 
 class App extends Component {
   render() {

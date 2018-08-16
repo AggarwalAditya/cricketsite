@@ -97,12 +97,6 @@ export class Livematches extends Component
 							}
 						</ul>
 						<Switch>
-					     
-					      	<Route
-						      exact
-						      path={this.props.match.url}
-						      render={() => <h3>Please select a message</h3>}
-						    />
 						    <Route path={`${this.props.match.url}/:id(\\d+)`} component={Singlematch} />
 						</Switch>
 					</div>
