@@ -10,6 +10,9 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+
+matchesData={}
+
 @app.route('/')
 def hello_world():
     return 'Hello'
@@ -39,6 +42,25 @@ def getNews():
 	else:
 		return "from post"
 
+@app.route('/updatematch',methods = ['POST','GET'])
+@cross_origin()
+def updateMatch():
+	global matchesData
+	if request.method == 'GET':
+		matchId = request.args.get('matchid')
+		matchInfo = request.args.get('info')
+
+		if matchId in matchesData:
+			arr = matchesData[matchId]
+			arr.append(info)
+		else:
+			matchesData[matchId] = []
+			matchesData[matchId].append(info)
+
+		return json.dumps(matchesData[matchId])
+
+	else:
+		return 'fom post'
 
 
 

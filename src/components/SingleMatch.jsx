@@ -42,13 +42,18 @@ export class Singlematch extends Component
 
 	render() 
 	{
-		return (
-			<div>
-				<div>Single match {this.props.match.params.id}</div>
-				<div>{this.getMatchData()}</div>
-				<p>{JSON.stringify(this.state.data)}</p>
-			</div>
-		);
+
+		
+
+				return (
+					<div>
+						<div>Single match {this.props.match.params.id}</div>
+						{/*	<div>{this.getMatchData()}</div>*/}
+						<p>{JSON.stringify(this.state.data)}</p>
+					</div>
+				);
+
+
 	}
 }
 
