@@ -3,7 +3,8 @@ import requests
 from flask import Flask,request
 import json
 from flask_cors import CORS, cross_origin
-
+from flask import Response
+import time
 
 
 app = Flask(__name__)
@@ -58,10 +59,18 @@ def updateMatch():
 			matchesData[matchId].append(matchInfo)
 
 		print json.dumps(matchesData)
+
 		return json.dumps(matchesData)
 
 	else:
 		return 'from post'
+
+
+@app.route('/matchfeed')
+@cross_origin()
+def matchFeed():
+	global matchesData
+	return json.dumps(matchesData)
 
 
 

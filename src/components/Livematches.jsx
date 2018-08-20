@@ -90,15 +90,20 @@ export class Livematches extends Component
 			
 
 			return(
-					<div>
-						<ul>
-							{
-								this.state.data.map(this.parseEatchMatch)
-							}
-						</ul>
-						<Switch>
-						    <Route path={`${this.props.match.url}/:id(\\d+)`} component={Singlematch} />
-						</Switch>
+					<div className="Container">
+						<div className="Left">
+							<ul>
+								{
+									this.state.data.map(this.parseEatchMatch)
+								}
+							</ul>
+						</div>
+
+						<div className="Right">
+							<Switch>
+							    <Route path={`${this.props.match.url}/:id(\\d+)`} component={Singlematch} />
+							</Switch>
+						</div>
 					</div>
 				);
 		}

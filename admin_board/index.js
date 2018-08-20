@@ -1,3 +1,4 @@
+
 function postData()
 {
 	let matchid = document.getElementById("matchid").value;
@@ -9,10 +10,16 @@ function postData()
         (result) => {
 			
           console.log(result);
+          
         },
         
 	        (error) => {
 	          
 	        }
 	      )
+
+
+
 }
+
+
